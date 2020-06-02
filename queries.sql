@@ -9,7 +9,8 @@ WHERE location = "St Louis";
 DROP TABLE techjobs.job;
 
 ## Part 4: Test it with SQL
-SELECT name, description
-FROM techjobs.skill
-INNER JOIN techjobs.job ON techjobs.skills_id = techjobs.job_skills.jobs_id
-WHERE jobs_id != null;
+SELECT skill.name, description
+FROM skill
+INNER JOIN job_skills ON skill.id = job_skills.skills_id
+WHERE jobs_id IS NOT NULL
+ORDER BY skill.name ASC;
